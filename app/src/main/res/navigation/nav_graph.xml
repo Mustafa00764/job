@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="uz.datatalim.bottomnaviagtionmenu.ui.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/beelineClubFragment"
+        android:name="uz.datatalim.bottomnaviagtionmenu.ui.fragment.BeelineClubFragment"
+        android:label="fragment_beeline_club"
+        tools:layout="@layout/fragment_beeline_club" />
+    <fragment
+        android:id="@+id/harajatlarFragment"
+        android:name="uz.datatalim.bottomnaviagtionmenu.ui.fragment.HarajatlarFragment"
+        android:label="fragment_harajatlar"
+        tools:layout="@layout/fragment_harajatlar" />
+    <fragment
+        android:id="@+id/tariflarFragment"
+        android:name="uz.datatalim.bottomnaviagtionmenu.ui.fragment.TariflarFragment"
+        android:label="fragment_tariflar"
+        tools:layout="@layout/fragment_tariflar" />
+    <fragment
+        android:id="@+id/yordamFragment"
+        android:name="uz.datatalim.bottomnaviagtionmenu.ui.fragment.YordamFragment"
+        android:label="fragment_yordam"
+        tools:layout="@layout/fragment_yordam" />
+</navigation>

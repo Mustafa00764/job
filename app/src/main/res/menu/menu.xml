@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home"
+        android:title="Asosiy" />
+
+    <item
+        android:id="@+id/harajatlarFragment"
+        android:icon="@drawable/ic_harajat"
+        android:title="Harajatlar" />
+
+    <item
+        android:id="@+id/tariflarFragment"
+        android:icon="@drawable/ic_tarif"
+        android:title="Tarif" />
+
+    <item
+        android:id="@+id/beelineClubFragment"
+        android:icon="@drawable/ic_club"
+        android:title="Beeline Club" />
+    <item
+        android:id="@+id/yordamFragment"
+        android:icon="@drawable/ic_help"
+        android:title="Yordam" />
+
+</menu>
