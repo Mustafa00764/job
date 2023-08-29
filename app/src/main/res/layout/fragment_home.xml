@@ -69,10 +69,21 @@
         android:drawableStart="@drawable/ic_search"
         android:paddingHorizontal="5dp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_users"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp" />
+        android:layout_height="wrap_content">
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:id="@+id/tablayout"
+            app:tabMode="scrollable"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
 
 </LinearLayout>

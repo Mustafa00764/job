@@ -5,16 +5,21 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewParent
 import android.widget.EditText
+import android.widget.ImageView
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.ViewPager
+import com.bumptech.glide.Glide
 import uz.datatalim.bottomnaviagtionmenu.R
 import uz.datatalim.bottomnaviagtionmenu.adapter.HorizantalAdapter
 import uz.datatalim.bottomnaviagtionmenu.adapter.HorizantaltwoAdater
 import uz.datatalim.bottomnaviagtionmenu.adapter.UserAdapter
 import uz.datatalim.bottomnaviagtionmenu.adapter.VerticalAdapter
+import uz.datatalim.bottomnaviagtionmenu.adapter.ViewpagerAdapter
 import uz.datatalim.bottomnaviagtionmenu.model.Horizantal
 import uz.datatalim.bottomnaviagtionmenu.model.Horizantaltwo
 import uz.datatalim.bottomnaviagtionmenu.model.User
@@ -22,11 +27,13 @@ import uz.datatalim.bottomnaviagtionmenu.model.Vertical
 
 
 class HomeFragment : Fragment() {
+    lateinit var adapter: ViewpagerAdapter
 lateinit var user2:ArrayList<Horizantal>
 lateinit var user3:ArrayList<Horizantaltwo>
     lateinit var userf4:ArrayList<Vertical>
-    lateinit var adapter: UserAdapter
-    lateinit var users: ArrayList<User>
+    lateinit var list: ArrayList<Fragment>
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,12 +58,15 @@ lateinit var user3:ArrayList<Horizantaltwo>
     private fun initViews2(view: View) {
         loadList2()
         val rvn2 = view.findViewById<RecyclerView>(R.id.rv_n1)
+        rvn2.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
         rvn2.adapter = HorizantalAdapter(user2)
+        val viewPager = view.findViewById<ViewPager>(R.id.view_pager)
+adapter= ViewpagerAdapter(list)
+        viewPager.adapter = adapter
     }
-
-
     private fun loadList2() {
-        user2 = ArrayList()
+            user2 = ArrayList()
+        user2.add(Horizantal("Get tips to find work","Learn how to optimize search,\\nuse Connects, and more to\\nland your first job."))
         user2.add(Horizantal("Get tips to find work","Learn how to optimize search,\\nuse Connects, and more to\\nland your first job."))
             }
 
@@ -66,12 +76,8 @@ lateinit var user3:ArrayList<Horizantaltwo>
 
     private fun initViews(view: View) {
         loadList()
-        val rvn2 = view.findViewById<RecyclerView>(R.id.rv_n1)
-        rvn2.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-        rvn2.adapter = HorizantaltwoAdater(user3)
-        val rvUser = view.findViewById<RecyclerView>(R.id.rv_users)
-        rvUser.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
-        rvUser.adapter = VerticalAdapter(userf4)
+
+
 
 //        val etSearch = view.findViewById<EditText>(R.id.et_search)
 //        rvUser.layoutManager = LinearLayoutManager(requireContext())
@@ -87,18 +93,10 @@ lateinit var user3:ArrayList<Horizantaltwo>
     }
 
     private fun loadList() {
-        userf4 = ArrayList()
-        user3 = ArrayList()
-        user3.add(Horizantaltwo("Get tips to find work","Learn how to optimize search,\\nuse Connects, and more to\\nland your first job."))
-        user3.add(Horizantaltwo("Get tips to find work","Learn how to optimize search,\\nuse Connects, and more to\\nland your first job."))
 
-        userf4.add(Vertical("Browse jobs that match your expence to a client's\\nhiring preferences. Ordered by most relevant.","We need somewone who have GP\\nconsole account","Fixed-price - Posted 7 hr.ago","$25","Budget ","Entry level","Budget","Hello, Need an  Publisher for publishing my android App\\non Google Play. I have Ready-made...","more","Smartphon","Table","Native App Development","spend"))
-        userf4.add(Vertical("Browse jobs that match your expence to a client's\\nhiring preferences. Ordered by most relevant.","We need somewone who have GP\\nconsole account","Fixed-price - Posted 7 hr.ago","$25","Budget ","Entry level","Budget","Hello, Need an  Publisher for publishing my android App\\non Google Play. I have Ready-made...","more","Smartphon","Table","Native App Development","spend"))
-        userf4.add(Vertical("Browse jobs that match your expence to a client's\\nhiring preferences. Ordered by most relevant.","We need somewone who have GP\\nconsole account","Fixed-price - Posted 7 hr.ago","$25","Budget ","Entry level","Budget","Hello, Need an  Publisher for publishing my android App\\non Google Play. I have Ready-made...","more","Smartphon","Table","Native App Development","spend"))
-        userf4.add(Vertical("Browse jobs that match your expence to a client's\\nhiring preferences. Ordered by most relevant.","We need somewone who have GP\\nconsole account","Fixed-price - Posted 7 hr.ago","$25","Budget ","Entry level","Budget","Hello, Need an  Publisher for publishing my android App\\non Google Play. I have Ready-made...","more","Smartphon","Table","Native App Development","spend"))
-        userf4.add(Vertical("Browse jobs that match your expence to a client's\\nhiring preferences. Ordered by most relevant.","We need somewone who have GP\\nconsole account","Fixed-price - Posted 7 hr.ago","$25","Budget ","Entry level","Budget","Hello, Need an  Publisher for publishing my android App\\non Google Play. I have Ready-made...","more","Smartphon","Table","Native App Development","spend"))
-        userf4.add(Vertical("Browse jobs that match your expence to a client's\\nhiring preferences. Ordered by most relevant.","We need somewone who have GP\\nconsole account","Fixed-price - Posted 7 hr.ago","$25","Budget ","Entry level","Budget","Hello, Need an  Publisher for publishing my android App\\non Google Play. I have Ready-made...","more","Smartphon","Table","Native App Development","spend"))
-//        users.add(User("", "Azamaat"))
+
+
+        //        users.add(User("", "Azamaat"))
 //        users.add(User("", "Bekzod"))
 //        users.add(User("", "Alibek"))
 //        users.add(User("", "Hasan"))
